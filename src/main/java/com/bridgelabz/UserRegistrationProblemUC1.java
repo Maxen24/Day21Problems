@@ -32,10 +32,25 @@ public class UserRegistrationProblemUC1 {
         }
         return lastname.matches(nameRegex);
     }
+//UC-3 As a User need to enter
 
+    //  a valid email//- E.g. abc.xyz@bl.co.in -
+    //  Email has 3 mandatory parts (abc, bl& co) and
+    //  2 optional (xyz & in) with precise @ and . positions
+    public boolean emailID(String emailID) throws CustomExceptions {
+        String emailRegex = "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$";
+        if (emailID.matches(emailRegex)) {
+            System.out.println("Valid Email ID is" + " " + emailID);
 
-        public static void main (String[]args){
-        UserRegistrationProblemUC1 myFirstname=new UserRegistrationProblemUC1();
+        } else {
+            throw new CustomExceptions("Invalid emailID ");
+
+        }
+        return emailID.matches(emailRegex);
+    }
+
+        public static void main (String[]args) {
+            UserRegistrationProblemUC1 myFirstname = new UserRegistrationProblemUC1();
 
             try {
                 System.out.println(myFirstname.firstName("To"));
@@ -43,6 +58,7 @@ public class UserRegistrationProblemUC1 {
                 System.out.println(e);
                 System.out.println(myFirstname);
             }
+
             UserRegistrationProblemUC2 myLastname=new UserRegistrationProblemUC2();
 
             try {
@@ -50,6 +66,14 @@ public class UserRegistrationProblemUC1 {
             } catch (Exception e) {
                 System.out.println(e);
                 System.out.println(myLastname);
+            }
+            UserRegistrationProblemUC3 myEmailID=new UserRegistrationProblemUC3();
+
+            try {
+                System.out.println(myEmailID.emailID("Max.123@gmail.com"));
+            } catch (Exception e) {
+                System.out.println(e);
+                System.out.println(myEmailID);
             }
         }
     }
