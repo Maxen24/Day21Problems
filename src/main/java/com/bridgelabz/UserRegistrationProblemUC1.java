@@ -1,16 +1,16 @@
 package com.bridgelabz;
 
 public class UserRegistrationProblemUC1 {
-    public  boolean firstName(String firstname) throws CustomExceptions {
+    public boolean firstName(String firstname) throws CustomExceptions {
         //UC1- User need to enter a valid FirstName
         // First name starts with Cap and has minimum 3 characters
         String nameRegex = "^[A-Z]{1}[a-z]{2}$";
         firstname.matches(nameRegex);
 
         if (firstname.matches(nameRegex)) {
-            System.out.println("Valid FirstName is"+" " +firstname);
+            System.out.println("Valid FirstName is" + " " + firstname);
 
-        } else{
+        } else {
             throw new CustomExceptions("Invalid FirstName and having More or less than 3 Characters");
 
         }
@@ -18,8 +18,8 @@ public class UserRegistrationProblemUC1 {
     }
 
     public boolean lastName(String lastname) throws CustomExceptions {
-        //UC1- User need to enter a valid FirstName
-        // First name starts with Cap and has minimum 3 characters
+        //UC2- User need to enter a valid LastName
+        // Last name starts with Cap and has minimum 3 characters
         String nameRegex = "^[A-Z]{1}[a-z]{2}$";
         lastname.matches(nameRegex);
 
@@ -33,6 +33,7 @@ public class UserRegistrationProblemUC1 {
         return lastname.matches(nameRegex);
     }
 
+
         public static void main (String[]args){
         UserRegistrationProblemUC1 myFirstname=new UserRegistrationProblemUC1();
 
@@ -41,6 +42,14 @@ public class UserRegistrationProblemUC1 {
             } catch (Exception e) {
                 System.out.println(e);
                 System.out.println(myFirstname);
+            }
+            UserRegistrationProblemUC2 myLastname=new UserRegistrationProblemUC2();
+
+            try {
+                System.out.println(myLastname.lastName("Be"));
+            } catch (Exception e) {
+                System.out.println(e);
+                System.out.println(myLastname);
             }
         }
     }
