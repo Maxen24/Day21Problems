@@ -63,6 +63,19 @@ public class UserRegistrationProblemUC1 {
         return (phoneNumber.matches(PhoneNumberRegex));
     }
 
+        //UC-5 As a User need to follow pre-defined Password rules.
+        //Rule1– minimum 8 Characters - NOTE – All rules must be passed
+        public boolean passWord(String password) throws Exception {
+            String passwordRegex = "[a-z]{8}";
+
+            if (password.matches(passwordRegex)) {
+                System.out.println("Valid Password" + password);
+            } else {
+                throw new CustomExceptions("Invalid Password");
+            }
+            return password.matches(passwordRegex);
+        }
+
     public static void main(String[] args) {
         UserRegistrationProblemUC1 myFirstname = new UserRegistrationProblemUC1();
 
@@ -70,7 +83,6 @@ public class UserRegistrationProblemUC1 {
             System.out.println(myFirstname.firstName("To"));
         } catch (Exception e) {
             System.out.println(e);
-            System.out.println(myFirstname);
         }
 
         UserRegistrationProblemUC2 myLastname = new UserRegistrationProblemUC2();
@@ -79,7 +91,6 @@ public class UserRegistrationProblemUC1 {
             System.out.println(myLastname.lastName("Be"));
         } catch (Exception e) {
             System.out.println(e);
-            System.out.println(myLastname);
         }
         UserRegistrationProblemUC3 myEmailID = new UserRegistrationProblemUC3();
 
@@ -87,7 +98,6 @@ public class UserRegistrationProblemUC1 {
             System.out.println(myEmailID.emailID("Max.123@gmail.com"));
         } catch (Exception e) {
             System.out.println(e);
-            System.out.println(myEmailID);
         }
         UserRegistrationProblemUC1 myPhoneNumber = new UserRegistrationProblemUC1();
         try {
@@ -95,6 +105,12 @@ public class UserRegistrationProblemUC1 {
         } catch (Exception e) {
             System.out.println(e);
             System.out.println(myPhoneNumber);
+        }
+        UserRegistrationProblemUC1 myPassword = new UserRegistrationProblemUC1();
+        try {
+            System.out.println(myPassword.passWord("valAdiate"));
+        } catch (Exception e) {
+            System.out.println(e);
         }
     }
 }
