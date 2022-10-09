@@ -100,6 +100,19 @@ public class UserRegistrationProblemUC1 {
         return passwordRule3.matches(passwordRule3Regex);
     }
 
+    // UC-8 Rule4 – Has exactly 1 Special Character - NOTE – All rules must be passed
+    public boolean passwordRule4(String passwordRule4) throws CustomExceptions {
+        String passwordRule4Regex = "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$";
+
+        if (passwordRule4.matches(passwordRule4Regex)){
+            System.out.println("Valid Password" +passwordRule4);
+        }else{
+            throw new CustomExceptions("Invalid Password without Special digit");
+        }
+        return passwordRule4.matches(passwordRule4Regex);
+
+    }
+
         public static void main (String[]args){
             UserRegistrationProblemUC1 myFirstname = new UserRegistrationProblemUC1();
 
@@ -145,6 +158,12 @@ public class UserRegistrationProblemUC1 {
             try{
                 System.out.println(myPasswordRule3.passwordRule3("validate@"));
             }catch(Exception e){
+                System.out.println(e);
+            }
+            UserRegistrationProblemUC1 myPasswordRule4=new UserRegistrationProblemUC1();
+            try{
+                System.out.println(myPasswordRule4.passwordRule4("validate"));
+            }catch (Exception e){
                 System.out.println(e);
             }
         }
