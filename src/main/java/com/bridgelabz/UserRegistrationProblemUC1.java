@@ -87,7 +87,18 @@ public class UserRegistrationProblemUC1 {
         }
         return passwordRule2.matches(passwordRuleRegex);
     }
+    //UC7 Rule3– Should have at least 1 numeric number in
+    //the password - NOTE – All rules must be passed
+    public boolean passwordRule3(String passwordRule3)throws CustomExceptions {
+        String passwordRule3Regex = "^(?=.*?[A-Z])[a-zA-Z]{8}[0-9]{1}";
 
+        if (passwordRule3.matches(passwordRule3Regex)) {
+            System.out.println("Valid PassWord" + passwordRule3);
+        } else {
+            throw new CustomExceptions("Invalid Password without Numeric Digit");
+        }
+        return passwordRule3.matches(passwordRule3Regex);
+    }
 
         public static void main (String[]args){
             UserRegistrationProblemUC1 myFirstname = new UserRegistrationProblemUC1();
@@ -98,14 +109,14 @@ public class UserRegistrationProblemUC1 {
                 System.out.println(e);
             }
 
-            UserRegistrationProblemUC2 myLastname = new UserRegistrationProblemUC2();
+            UserRegistrationProblemUC1 myLastname = new UserRegistrationProblemUC1();
 
             try {
                 System.out.println(myLastname.lastName("Be"));
             } catch (Exception e) {
                 System.out.println(e);
             }
-            UserRegistrationProblemUC3 myEmailID = new UserRegistrationProblemUC3();
+            UserRegistrationProblemUC1 myEmailID = new UserRegistrationProblemUC1();
 
             try {
                 System.out.println(myEmailID.emailID("Max.123@gmail.com"));
@@ -128,6 +139,12 @@ public class UserRegistrationProblemUC1 {
             try{
                 System.out.println(myPasswordRule2.passwordRule2("123date"));
             }catch (Exception e){
+                System.out.println(e);
+            }
+            UserRegistrationProblemUC1 myPasswordRule3=new UserRegistrationProblemUC1();
+            try{
+                System.out.println(myPasswordRule3.passwordRule3("validate@"));
+            }catch(Exception e){
                 System.out.println(e);
             }
         }
